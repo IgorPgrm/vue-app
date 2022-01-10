@@ -19,7 +19,7 @@
                   >
                   Add number
     </button>
-    <button class="btn btn-primary" v-on:click="newNumbers" v-bind:seen="done">New numbers</button>
+    <button class="btn btn-primary new-numbers-button" v-on:click="newNumbers" v-bind:disabled="this.numbers.length == 0">New numbers</button>
     <hr>
     <ul class="list-group">
       <li class="list-group-item" v-for="number in numbers" :key="number">
@@ -52,8 +52,7 @@ export default {
       }
     },
     newNumbers(){
-      console.log(this.numbers);
-      return 1;
+      this.numbers = []
     }
   },
   computed: {
@@ -99,6 +98,10 @@ export default {
 
 .slide-leave-to {
   opacity: 0;
+}
+
+.new-numbers-button {
+  margin-left: 40px;
 }
 
 </style>

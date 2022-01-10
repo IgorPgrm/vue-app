@@ -2,7 +2,7 @@
   <div>
     <button class="btn btn-primary" v-on:click="showRes = !showRes"> {{ btnText }} </button>
     <hr>
-    {{ progress }}
+    <app-progress v-bind:val="sum" v-bind:max="maxNumbers * -5"></app-progress>
     <hr>
     <transition name="slide">
       <h2 v-show="showRes" class="alert alert-success">
@@ -10,7 +10,7 @@
       </h2>
     </transition>
     <hr>
-    <app-progress v-bind:val="numbers.length" v-bind:max="maxNumbers">
+    <app-progress v-bind:val="numbers.length" v-bind:max="maxNumbers"> {{ numbers.length }}
     </app-progress>
     <hr>
     <button class="btn btn-success"
@@ -19,6 +19,7 @@
                   >
                   Add number
     </button>
+    <button class="btn btn-primary" v-on:click="newNumbers" v-bind:seen="done">New numbers</button>
     <hr>
     <ul class="list-group">
       <li class="list-group-item" v-for="number in numbers" :key="number">
@@ -49,6 +50,10 @@ export default {
         let rnd = Math.floor(Math.random() * 11) - 5;
         this.numbers.push(rnd);
       }
+    },
+    newNumbers(){
+      console.log(this.numbers);
+      return 1;
     }
   },
   computed: {

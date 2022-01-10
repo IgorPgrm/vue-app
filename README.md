@@ -1,5 +1,7 @@
 # vue-app
 
+Tutorial video: https://www.youtube.com/watch?v=gQq7Zk1D6v0
+
 ## Project setup
 ```
 yarn install
